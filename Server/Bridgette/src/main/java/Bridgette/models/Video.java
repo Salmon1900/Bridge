@@ -31,4 +31,23 @@ public class Video {
     @JsonProperty
     private String link;
 
+    public Integer id() {
+        return id;
+    }
+
+    public Category category() {
+        return category;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public String desc() {
+        return desc;
+    }
+
+    public String link() {
+        return link;
+    }
 }

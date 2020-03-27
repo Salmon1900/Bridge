@@ -15,4 +15,21 @@ public class VideoService {
     public List<Video> getAll() {
         return this.videoRepository.findAll();
     }
+
+    public Video getByTitle(String title) {
+        List<Video> videos = this.videoRepository.findByTitle(title);
+        if (!videos.isEmpty()) {
+            return videos.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    public void add(Video video) {
+        this.videoRepository.save(video);
+    }
+
+    public void delete(int id) {
+        this.videoRepository.deleteById(id);
+    }
 }

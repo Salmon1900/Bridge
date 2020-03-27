@@ -4,10 +4,7 @@ import Bridgette.models.Video;
 import Bridgette.services.CategoryService;
 import Bridgette.services.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +28,24 @@ public class VideoController {
         try {
             int id = Integer.parseInt(catId);
             return this.categoryService.getVideosByCategory(id);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new ArrayList();
         }
     }
+
+    @GetMapping("/title/{title}")
+    public Video getByTitle(@PathVariable String title) {
+        return this.videoService.getByTitle(title);
+    }
+
+    @PostMapping("/new")
+    public void addVideo(@RequestBody Video video) {
+        this.videoService.add(video);
+    }
+
+    @DeleteMapping("/remove")
+    public void removeVideo ( @RequestBody Video video) {
+        this.videoService.delete(video.id());
+    }
+
 }
