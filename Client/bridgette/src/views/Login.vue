@@ -68,8 +68,14 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
-      this.$router.push("/videos")
-      this.$router.go()
+      this.$swal({
+        icon: "error",
+        title: "שם משתמש או סיסמה שגויים",
+        confirmButtonText: "סגור",
+      })
+      this.reset()
+      // this.$router.push("/videos")
+      // this.$router.go()
     },
     reset() {
       this.$refs.form.reset();
