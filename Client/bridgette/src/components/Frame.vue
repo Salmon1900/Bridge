@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="teal darken-1" dark>
       <div class="d-flex align-center">
         <router-link to="/" tag="v-btn">
-          <v-btn color="green" flat value="feed">
-            <span>Feed</span>
-            <v-icon>question_answer</v-icon>
+          <v-btn color="blue-grey darken-2" flat large>
+            <span></span>
+            <v-icon>mdi-exit-to-app</v-icon>
           </v-btn>
         </router-link>
       </div>
@@ -13,7 +13,7 @@
       <v-spacer></v-spacer>
     </v-app-bar>
 
-    <v-content>
+    <v-content id="content">
       <router-view />
     </v-content>
   </v-app>
@@ -26,4 +26,7 @@ export default {
 </script>
 
 <style>
+#content {
+  background-color: #FFFBE6;
+}
 </style>
