@@ -16,7 +16,7 @@ public class Video {
 
     @ManyToOne
     @JoinColumn(name="category_id")
-    @JsonIgnoreProperties({"name", "videos"})
+    @JsonProperty
     private Category category;
 
     @Column(name="title")
